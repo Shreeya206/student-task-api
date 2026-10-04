@@ -1,6 +1,6 @@
 # Student Task API
 
-A simple REST API for managing student tasks, built using Python Flask and containerized with Docker.
+A simple REST API for managing student tasks, built using Python Flask and Docker and deployed on AWS EC2.
 
 ## Project Overview
 
@@ -27,67 +27,43 @@ Client → AWS EC2 Instance → Docker Container → Flask REST API → Student 
 
 ## API Endpoints
 
-### Home
-
-GET /
-
-Returns a message confirming that the API is running.
-
-### Health Check
-
-GET /health
-
-Returns the health status of the API.
-
-### Get Tasks
-
-GET /tasks
-
-Returns the list of available tasks.
-
-### Add Task
-
-POST /tasks
-
-Adds a new task to the task list.
-
-Example request:
-
-{ "title": "Learn Docker" }
-
-## Run Locally Without Docker
-
-Install the dependencies:
-
-python -m pip install -r requirements.txt
-
-Run the application:
-
-python app.py
-
-Open in your browser:
-
-http://localhost:5000
-
-## Run Using Docker
-
-Build the Docker image:
-
-docker build -t student-task-api .
-
-Run the container:
-
-docker run -d -p 5000:5000 --name student-task-api-container student-task-api
-
-Open in your browser:
-
-http://localhost:5000
+- GET `/` - Checks whether the API is running
+- GET `/health` - Checks API health
+- GET `/tasks` - Returns all tasks
+- POST `/tasks` - Adds a new task
 
 ## Deployment
 
-The application is intended to be deployed on an AWS EC2 instance using Docker.
+The application is deployed on an AWS EC2 instance using Docker.
+
+Live API:
+
+http://16.171.193.14:5000
+
+Health Check:
+
+http://16.171.193.14:5000/health
+
+## Local Run
+
+Install Flask:
+
+`pip install flask`
+
+Run the application:
+
+`python app.py`
+
+## Docker Run
+
+Build the Docker image:
+
+`docker build -t student-task-api .`
+
+Run the container:
+
+`docker run -d -p 5000:5000 --name student-task-api-container student-task-api`
 
 ## Project Status
 
-The application has been tested locally using Flask and Docker.
-
+The application has been tested locally using Flask and Docker and is currently deployed and running on AWS EC2.
